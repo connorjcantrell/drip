@@ -1,42 +1,45 @@
 # Drip Ontology
 
 ## Overview
-The Drip Ontology is a lightweight ontology that models a simple coffee maker. It includes classes representing various components of a coffee maker such as heating element, pump, water reservoir, and filter basket. The ontology also defines relationships between the components such as "serves" and "has part".
+The Drip Ontology is a lightweight ontology that models a coffee maker and defines classes for its components such as heating element, pump, water reservoir, and filter basket, along with their relationships like "serves" and "has part". This resource serves as a practical guide for individuals interested in ontology development, providing an example of how to design and validate an ontology using SHACL shapes and a sample instance file in RDF/Turtle format.
+
 
 ## Ontology Details
 The Drip Ontology defines the following classes:
 
-- drip:Component: A general class representing components of a coffee maker.
-- drip:DripCoffeeMaker: A device that automates the process of brewing coffee using a system of water heating, pumping, and dispensing over coffee grounds.
-- drip:WaterReservoir: A component that stores water needed for brewing coffee.
-- drip:HeatingElement: An electrical component responsible for heating water to an optimal temperature.
-- drip:Pump: A mechanical component that moves heated water through a distribution system.
-- drip:Showerhead: A perforated component that evenly disperses hot water over coffee grounds.
-- drip:FilterBasket: A component that holds coffee grounds, typically lined with a filter.
-- drip:Carafe: A glass or thermal container that collects the brewed coffee.
+- `drip:Component`: A general class representing components of a coffee maker.
+- `drip:DripCoffeeMaker`: A device that automates the process of brewing coffee using a system of water heating, pumping, and dispensing over coffee grounds.
+- `drip:WaterReservoir`: A component that stores water needed for brewing coffee.
+- `drip:HeatingElement`: An electrical component responsible for heating water to an optimal temperature.
+- `drip:Pump`: A mechanical component that moves heated water through a distribution system.
+- `drip:Showerhead`: A perforated component that evenly disperses hot water over coffee grounds.
+- `drip:FilterBasket`: A component that holds coffee grounds, typically lined with a filter.
+- `drip:Carafe`: A glass or thermal container that collects the brewed coffee.
 
 The ontology also defines the following properties:
 
-- drip:hasPart: A property to link components of a coffee maker to the coffee maker itself.
-- drip:serves: A property to link coffee maker components to the components they serve.
+- `drip:hasPart`: A property to link components of a coffee maker to the coffee maker itself.
+- `drip:serves`: A property to link coffee maker components to the components they serve.
 
 ## SHACL Shapes
 The SHACL shapes in the Drip Ontology repository define constraints for the following classes:
 
-drip:HeatingElement
-drip:WaterReservoir
-drip:Pump
-drip:Showerhead
+- `drip:HeatingElement`
+- `drip:WaterReservoir`
+- `drip:Pump`
+- `drip:Showerhead`
+
 These shapes specify that each component must serve at least one other component, as follows:
 
-A Heating Element must serve at least one Water Reservoir.
-A Water Reservoir must serve at least one Pump.
-A Pump must serve at least one Showerhead.
-A Showerhead must serve at least one FilterBasket.
-Example
-The example directory contains an example instance of a coffee maker in RDF/Turtle format (some-coffee-maker.ttl) and a Python script to validate it against the Drip Ontology and SHACL shapes (validate.py). To run the validation, simply navigate to the example directory and run python3 validate.py. The output will indicate whether the instance conforms to the constraints specified in the ontology and shapes.
+- A Heating Element must serve at least one Water Reservoir.
+- A Water Reservoir must serve at least one Pump.
+- A Pump must serve at least one Showerhead.
+- A Showerhead must serve at least one FilterBasket.
+
 
 ## Tests
+The example directory contains an example instance of a coffee maker in RDF/Turtle format (`some-coffee-maker.ttl`) and a Python script to validate it against the Drip Ontology and SHACL shapes (validate.py). To run the validation, simply navigate to the example directory and run python3 validate.py. The output will indicate whether the instance conforms to the constraints specified in the ontology and shapes.
+
 To run the SHACL validation tests on the Drip Ontology, you will need to have a Python environment set up with the pyshacl library installed.
 
 Here are the steps to set up a Python environment:
