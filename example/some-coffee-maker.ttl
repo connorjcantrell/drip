@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix drip: <https://connorcantrell/drip#> .
+@prefix ex: <http://example.com#> .
+
+ex:someCoffeeMaker a drip:DripCoffeeMaker ;
+    drip:hasPart ex:someWaterReservoir, ex:someHeatingElement, ex:somePump, ex:someShowerhead, ex:someFilterBasket, ex:someCarafe .
+
+ex:someWaterReservoir a drip:WaterReservoir ;
+    drip:serves ex:somePump .
+
+ex:someHeatingElement a drip:HeatingElement ;
+    drip:serves ex:someWaterReservoir .
+
+ex:somePump a drip:Pump ;
+    drip:serves ex:someShowerhead .
+
+ex:someShowerhead a drip:Showerhead ;
+    drip:serves ex:someFilterBasket .
+
+ex:someFilterBasket a drip:FilterBasket ;
+    drip:serves ex:someCarafe .
+
+

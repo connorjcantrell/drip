@@ -1,0 +1,43 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix drip: <https://connorcantrell/drip#> .
+
+drip:HeatingElementShape a sh:NodeShape ;
+    sh:targetClass drip:HeatingElement;
+    sh:property [
+        sh:path drip:serves ;
+        sh:class drip:WaterReservoir ;
+        sh:minCount 1 ;
+        sh:message "A Heating Element must serve at least one Water Reservoir" ;
+    ] .
+
+drip:WaterReservoirShape a sh:NodeShape ;
+    sh:targetClass drip:WaterReservoir ;
+    sh:property [
+        sh:path drip:serves ;
+        sh:class drip:Pump ;
+        sh:minCount 1 ;
+        sh:message "A Water Reservoir must at least one Pump." ;
+    ] .
+
+drip:PumpShape a sh:NodeShape ;
+    sh:targetClass drip:Pump ;
+    sh:property [
+        sh:path drip:serves ;
+        sh:class drip:Showerhead ;
+        sh:minCount 1 ;
+        sh:message "A Pump must serve at least one Showerhead." ;
+    ] .
+
+drip:Showerhead a sh:NodeShape ;
+    sh:targetClass drip:Showerhead ;
+    sh:property [
+        sh:path drip:serves ;
+        sh:class drip:FilterBasket ;
+        sh:minCount 1 ;
+        sh:message "A Showerhead must serve at least one FilterBasket." ;
+    ] .
+

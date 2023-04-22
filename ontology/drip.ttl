@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix drip: <https://connorcantrell/drip#> .
+
+drip:Component a rdfs:Class ;
+    rdfs:label "Drip Coffee Maker Component" ;
+    skos:definition "A general class representing components of a coffee maker." .
+
+drip:DripCoffeeMaker a rdfs:Class ;
+    rdfs:label "Drip Coffee Maker" ;
+    skos:definition "A device that automates the process of brewing coffee using a system of water heating, pumping, and dispensing over coffee grounds." .
+
+drip:WaterReservoir a rdfs:Class ;
+    rdfs:label "Water Reservoir" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "A component that stores water needed for brewing coffee." .
+
+drip:HeatingElement a rdfs:Class ;
+    rdfs:label "Heating Element" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "An electrical component responsible for heating water to an optimal temperature." .
+
+drip:Pump a rdfs:Class ;
+    rdfs:label "Pump" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "A mechanical component that moves heated water through a distribution system." .
+
+drip:Showerhead a rdfs:Class ;
+    rdfs:label "Showerhead" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "A perforated component that evenly disperses hot water over coffee grounds." .
+
+drip:FilterBasket a rdfs:Class ;
+    rdfs:label "Filter Basket" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "A component that holds coffee grounds, typically lined with a filter." .
+
+drip:Carafe a rdfs:Class ;
+    rdfs:label "Carafe" ;
+    rdfs:subClassOf drip:Component ;
+    skos:definition "A glass or thermal container that collects the brewed coffee." .
+
+drip:hasPart a rdfs:Property ;
+    rdfs:label "has part" ;
+    rdfs:domain drip:DripCoffeeMaker ;
+    rdfs:range drip:Component .
+
+drip:serves a rdfs:Property ;
+    rdfs:label "serves" ;
+    rdfs:domain drip:DripCoffeeMaker ;
+    rdfs:range drip:Component .
+
+
+
