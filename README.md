@@ -38,31 +38,23 @@ These shapes specify that each component must serve at least one other component
 
 
 ## Tests
-The example directory contains an example instance of a coffee maker in RDF/Turtle format (`some-coffee-maker.ttl`) and a Python script to validate it against the Drip Ontology and SHACL shapes (validate.py). To run the validation, simply navigate to the example directory and run python3 validate.py. The output will indicate whether the instance conforms to the constraints specified in the ontology and shapes.
+The tests directory contains an example instance of a coffee maker in RDF/Turtle format (`some-coffee-maker.ttl`) and a Python script to validate it against the Drip Ontology and SHACL shapes (`test_validation.py`). 
 
-To run the SHACL validation tests on the Drip Ontology, you will need to have a Python environment set up with the pyshacl library installed.
+To run the SHACL validation tests on the Drip Ontology, you will need to have a Python environment set up and managed by Poetry.
 
-Here are the steps to set up a Python environment:
+Here are the steps to set up a Python environment using Poetry:
 
-1. Open a terminal and navigate to the `example` directory.
-2. Create a new Python virtual environment with the following command:
+1. Open a terminal and navigate to the project's root directory.
+2. Install Poetry if you haven't already, following the instructions on the [official Poetry website](https://python-poetry.org/docs/#installation).
+3. Install the project dependencies managed by Poetry with the following command:
 ```
-python3 -m venv venv
+poetry install
 ```
-3. Activate the virtual environment with the following command:
+4. Run the validation script with the following command:
 ```
-source venv/bin/activate
+poetry run pytest
 ```
-4. Install the required dependencies with the following command:
-```
-pip3 install -r requirements.txt
-```
-This will install the pyshacl library.
-5. Run the validation script with the following command:
-```
-python3 validate.py
-```
-
 This will run the SHACL validation tests on the Drip Ontology and produce a validation report.
 
-The validate.py script uses the pyshacl library to perform the validation. It loads the Drip Ontology, the SHACL shapes graph, and an instance data graph. It then runs the SHACL validation on the instance data graph using the shapes graph and the ontology graph for inference. The script prints out whether or not the instance data graph conforms to the shapes graph and a validation report with any constraint violations that were found.
+The `test_validation.py` script utilizes the pyshacl library to perform the validation. It loads the Drip Ontology, the SHACL shapes graph, and an instance data graph. The script then runs the SHACL validation on the instance data graph using the shapes graph and the ontology graph for inference. Upon completion, it provides a validation report containing any constraint violations that were found, if any.
+
