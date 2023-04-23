@@ -1,9 +1,9 @@
 import pyshacl
 from rdflib import Graph
 
-ontology_file = "../ontology/drip.ttl"
-shapes_file = "../shapes/drip-shapes.ttl"
-data_file = "some-coffee-maker.ttl"
+ontology_file = "ontology/drip.ttl"
+shapes_file = "shapes/drip-shapes.ttl"
+data_file = "tests/some-coffee-maker.ttl"
 
 # Load ontology, shapes, and instance data graphs
 ontology_graph = Graph().parse(ontology_file, format="turtle")

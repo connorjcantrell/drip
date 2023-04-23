@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "drip"
+version = "0.1.0"
+description = "A lightweight ontology that models a drip coffee maker"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyshacl = "^0.22.0"
+pytest = "^7.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+python_files = ["*_test.py", "test_*.py", "validate.py"]
+filterwarnings = ["ignore::DeprecationWarning"]
+

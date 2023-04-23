@@ -1,1 +1,27 @@
+# Poetry files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.so
+*.egg-info/
+dist/
+build/
+.poetryenv
+.poetry-version
+.poetry.lock
+
+# Virtual environment
+.venv/
 venv/
+ENV/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
